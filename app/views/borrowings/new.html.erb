@@ -1,0 +1,12 @@
+<h1>Borrow "<%= @book.title %>"</h1>
+
+<%= form_with(model: @borrowing, local: true, url: book_borrowings_path(@book)) do |form| %>
+  <%= form.hidden_field :book_id, value: @book.id %>
+
+  <div class="mb-3">
+    <%= form.label :borrower_name %>
+    <%= form.text_field :borrower_name, class: "form-control" %>
+  </div>
+
+  <%= form.submit "Borrow", class: "btn btn-primary" %>
+<% end %>
